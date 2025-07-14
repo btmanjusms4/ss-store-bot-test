@@ -94,18 +94,19 @@ async def start_command(client: Client, message: Message):
                     )
                 else:
                     caption = "" if not msg.caption else msg.caption.html
-
-    if DISABLE_CHANNEL_BUTTON:
-    reply_markup = msg.reply_markup
-else:
-    from random import choice
-    from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-
-    channel_links = [
-        ("colors kannada", "https://t.me/+J8vSpNYtE-k1Zjc1"),
-        ("zee kannada", "https://t.me/+ZVorkdJpLMk2NDU9"),
-        ("star suvarna", "https://t.me/+ksO3EEeMWRs3OWE9")
-    ]
+                    
+                    if DISABLE_CHANNEL_BUTTON:
+                        reply_markup = msg.reply_markup
+                    else:
+                        from random import choice
+                        from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+                        
+                        channel_links = [
+                            
+                            ("colors kannada", "https://t.me/+J8vSpNYtE-k1Zjc1"),
+                            ("zee kannada", "https://t.me/+ZVorkdJpLMk2NDU9"),
+                            ("star suvarna", "https://t.me/+ksO3EEeMWRs3OWE9")
+                        ]
 
     channel_name, channel_url = choice(channel_links)
     reply_markup = InlineKeyboardMarkup([
